@@ -8,7 +8,4 @@ function deleteSection(event) {
 
 grid.addEventListener("click", deleteSection);
 
-const html = localStorage.getItem("html");
-if (html) {
-  grid.innerHTML = html;
-}
+

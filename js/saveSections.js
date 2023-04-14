@@ -17,3 +17,7 @@ function saveToLocalStorage() {
     }
   });
   
+  const html = localStorage.getItem("html");
+if (html) {
+  grid.innerHTML = html;
+}

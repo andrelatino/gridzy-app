@@ -31,8 +31,9 @@ addSection1.addEventListener("click", function() {
             </div>
         </div>
         <div class="admin-buttons">
-            <button class="delete-button">Delete</button>
-            <button onclick="duplicateSection(this)">Duplicate</button>
+        <input type="radio" name="selectedSection" class="section-radio" onchange="getSelectedSection()">
+
+            
         </div>
     </section>
     `;

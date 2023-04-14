@@ -1,3 +1,29 @@
+
+input.section-radio {
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+}
+div#section-toolbar {
+    display: grid;
+    place-content: center;
+    grid-template-columns: auto auto;
+    height: 50px;
+    background: #ebebeb;
+    position: sticky;
+    top: 0;
+    z-index: 99999999999;
+    width: 100%;
+}
+
+input.section-checkbox {
+    height: 35px;
+    width: 35px;
+    position: relative;
+    margin-top: 10px;
+    margin-right: 10px;
+    z-index: 9999999999;
+}
 .modal {
     position: fixed;
     right: 0;
@@ -25,18 +51,14 @@ img{
 }
 div#title {
     background: #ebebeb;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 9999999;
     height: 50px;
     display: grid;
     place-content: center;
 }
-div#holder {
-    display: grid;
-    place-content: center;
-    min-height: 85vh;
-}
+
 div#fixed-buttons {
     height: calc(100vh - 50px);
     display: grid;
