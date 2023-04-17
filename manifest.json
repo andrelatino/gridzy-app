@@ -5,7 +5,7 @@
     "display": "standalone",
     "icons": [
       {
-        "src": "./gridzy-icon.svg",
+        "src": "gridzy-icon.svg",
         "type": "image/svg+xml",
         "sizes": "512x512",
         "purpose": "any"
