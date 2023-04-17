@@ -9,12 +9,10 @@ function generateRandomID(length) {
   }
   return result;
 }
-
+const addSection1 = document.getElementById("add-button1");
+const addSectionToGrid1 = document.getElementById("grid");  
 addSection1.addEventListener("click", function() {
 
-    const addSection1 = document.getElementById("add-button1");
-    const addSectionToGrid1 = document.getElementById("grid");  
-    
     const customHTML = `    
     <section id="${generateRandomID(10)}">
         <div id="${generateRandomID(10)}">
