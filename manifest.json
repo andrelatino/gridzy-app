@@ -5,16 +5,10 @@
     "display": "standalone",
     "icons": [
       {
-        "src": "./media/pwa-icon-512.svg",
+        "src": "./gridzy-icon.svg",
         "type": "image/svg+xml",
         "sizes": "512x512",
         "purpose": "any"
-      },
-      {
-        "src": "./media/pwa-icon-512.png",
-        "type": "image/png",
-        "sizes": "512x512",
-        "purpose": "maskable"
       }
     ],
     "name": "Gridzy App",

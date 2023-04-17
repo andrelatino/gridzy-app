@@ -18,9 +18,9 @@ input.section-radio {
 }
 div#section-toolbar {
     display: grid;
-    place-content: center;
+    place-content: start;
     grid-template-columns: repeat(6,auto);
-    height: 100px;
+    height: 72px;
     background: #ebebeb;
     position: sticky;
     top: 0;
