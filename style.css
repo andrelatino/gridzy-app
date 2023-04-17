@@ -1,4 +1,16 @@
-
+button img {
+    width: 35px;
+    margin:auto;
+    
+}
+button{
+    
+    margin: 0;
+    background: white;
+    border: none;
+    padding: 10px;
+    width: 75px;
+}
 input.section-radio {
     width: 35px;
     height: 35px;
@@ -7,13 +19,14 @@ input.section-radio {
 div#section-toolbar {
     display: grid;
     place-content: center;
-    grid-template-columns: auto auto;
-    height: 50px;
+    grid-template-columns: repeat(6,auto);
+    height: 100px;
     background: #ebebeb;
     position: sticky;
     top: 0;
     z-index: 99999999999;
     width: 100%;
+    gap: 1px;
 }
 
 input.section-checkbox {
@@ -29,7 +42,7 @@ input.section-checkbox {
     right: 0;
     width: 200px;
     padding: 20px;
-    background: #d8d8d8;
+    background: #ebebeb;
     display: grid;
     height: 100vh;
     place-content: start center;
@@ -66,20 +79,21 @@ div#fixed-buttons {
     position: sticky;
     top: 50px;
     overflow-y: scroll;
+    gap: 1px;
 }
 div#fixed-sidebar {
     position:sticky;
-    top: 50px;
-    
-    width: 200px;
+    top: 50px;    
+    width: 100px;
     display: grid;
     place-content: start center;
     height: calc(100vh - 50px);
     overflow-y: scroll;
+    gap: 1px;
 }
 div#admin {
     display: grid;
-    grid-template-columns: 100px 1fr 200px;
+    grid-template-columns: 100px 1fr 100px;
     place-content: center;
     background: #ebebeb;
     min-height: calc(100vh - 50px);
@@ -87,7 +101,7 @@ div#admin {
 @media screen and (max-width:865px){  
     div#admin {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 100px 1fr 100px;
         place-content: center;
         background: #ebebeb;
         min-height: calc(100vh - 50px);
@@ -113,15 +127,16 @@ section{
 div#sidebar {
     display: grid;
     place-content: baseline;
-    background:#d8d8d8;
+    background:#ebebeb;
     min-height: 100vh;
+    width:100px;
 }
 div#buttons {
     display: grid;
     place-content: start center;
     min-height: 100vh;
     gap: 5px;
-    background: #d8d8d8;
+    background: #ebebeb;
 }
 #grid {
     box-sizing: border-box;
@@ -264,8 +279,8 @@ button#add-more {
     left: 0;
   }
   #left-sidebar-fake{
-    display: block;
-    width: 200px;
+    display:grid;
+    width: 100px;
     height: 100vh;
   }
   .modal-content {

@@ -1,31 +1,21 @@
-
-function moveSections() {
-  grid.addEventListener("click", function(event) {
-    const clickedElement = event.target;
-    if (clickedElement.classList.contains("move-up-button")) {
-      const section = clickedElement.closest("section");
-      const prevSection = section.previousElementSibling;
-      if (prevSection) {
-        section.parentNode.insertBefore(section, prevSection);
-        saveToLocalStorage();
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    } else if (clickedElement.classList.contains("move-down-button")) {
-      const section = clickedElement.closest("section");
-      const nextSection = section.nextElementSibling;
-      if (nextSection) {
-        section.parentNode.insertBefore(nextSection, section);
-        saveToLocalStorage();
-        section.scrollIntoView({ behavior: "smooth" });
-      } else {
-        // if the section is the last one, append it to the grid
-        section.parentNode.appendChild(section);
-        saveToLocalStorage();
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  });
+function moveSection(sectionId, direction) {
+  const section = document.getElementById(sectionId);
+  const sibling = direction === 'up' ? section.previousElementSibling : section.nextElementSibling;
+  if (sibling) {
+    section.parentNode.insertBefore(section, direction === 'up' ? sibling : sibling.nextElementSibling);
+    section.scrollIntoView({ behavior: 'smooth' });
+    saveToLocalStorage();
+  }
 }
 
-/* <button class="move-up-button">Up</button>
-<button class="move-down-button">Down</button> */
+const moveUpBtn = document.querySelector('.move-up-button');
+moveUpBtn.addEventListener('click', function() {
+  const sectionId = localStorage.getItem('sectionID');
+  moveSection(sectionId, 'up');
+});
+
+const moveDownBtn = document.querySelector('.move-down-button');
+moveDownBtn.addEventListener('click', function() {
+  const sectionId = localStorage.getItem('sectionID');
+  moveSection(sectionId, 'down');
+});

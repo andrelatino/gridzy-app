@@ -1,0 +1,25 @@
+
+ {
+    "background_color": "#ebebeb",
+    "description": "Gridzy App",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "./media/pwa-icon-512.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512",
+        "purpose": "any"
+      },
+      {
+        "src": "./media/pwa-icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "maskable"
+      }
+    ],
+    "name": "Gridzy App",
+    "orientation": "natural",
+    "short_name": "Gridzy App",
+    "start_url": "./",
+    "theme_color": "#ebebeb"
+  }

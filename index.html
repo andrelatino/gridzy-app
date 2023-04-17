@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="manifest" href="./manifest.json">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" type="text/css" href="https://andrelatino.github.io/gridzy-css/gridzy.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://andrelatino.github.io/gridzy-css/gridzy.css"> -->
+    <link rel="stylesheet" type="text/css" href="../gridzy-css/gridzy.css">
     
   </head>
     <body>
       <div id="admin">
           <div id="buttons">
             <div id="fixed-buttons"> 
-              <button id="clear-button">Clear</button>
+              <!-- <button id="clear-button">Clear</button>
               <button id="export-button">Export</button>
               <button id="scroll-to-top-btn">Top</button>
               <button id="scroll-to-bottom-btn">Bottom</button>
+              <button onclick="exportAllSections()">Export Page</button> -->
+              <button id="save-button"><img src="./assets/svg/icons/save.svg">Save</button>
+              <button id="clear-button"><img src="./assets/svg/icons/delete.svg">Delete</button>
+              <button id="scroll-to-top-btn"><img src="./assets/svg/icons/up.svg">Up</button>
+              <button id="scroll-to-bottom-btn"><img src="./assets/svg/icons/down.svg">Down</button>
+
 
             </div>            
           </div>
@@ -25,10 +33,14 @@
             
             <div id="content">   
               
-              <!-- <div id="title"><h1>This is my great Website</h1> </div>       -->
+              <div id="title"><h1>This is my great Website</h1> </div>      
               <div id="section-toolbar" style="visibility:hidden;">
-                <button id="delete-btn" >Delete</button>
-                
+                <button id="delete-btn" ><img src="./assets/svg/icons/delete.svg">Delete</button>
+                <button class="move-up-button"><img src="./assets/svg/icons/up.svg">Up</button>
+                <button class="move-down-button"><img src="./assets/svg/icons/down.svg">Down</button>
+                <button id="toolbar-duplicate" ><img src="./assets/svg/icons/duplicate.svg">Duplicate</button>                
+                <button onclick="replaceSection()"><img src="./assets/svg/icons/replace.svg">Replace</button>
+                <button onclick="exportSection()"><img src="./assets/svg/icons/export.svg">Export</button>    
               </div>
             <div id="holder">
               <div id="empty-section"></div>
@@ -41,29 +53,39 @@
 
           <div id="sidebar">
             <div id="fixed-sidebar">
-              <button id="addSection1">Section1</button>
-              <button id="addSection2">Section2</button>
+              
+              <button id="import"><img src="./assets/svg/icons/import.svg">Import</button>
+              <button id="export"><img src="./assets/svg/icons/export.svg">Export</button>
+              <button id="import"><img src="./assets/svg/icons/themes.svg">Themes</button>
+              <button id="import-section" onclick="importSection()">Import Section</button>
+              <!-- <button id="import-page" onclick="importPage()"> <img src="./assets/svg/icons/import.svg">Import Page </button> -->
+              
+             
             </div> 
           </div>
            
       </div>      
-      
+      <script src="./sw.js"></script>
 
-      <script src="./js/addSections.js"></script>
+      <!-- <script src="./js/addSections.js"></script> -->
       <script src="./js/duplicateSections.js"></script>
       <script src="./js/deleteSections.js"></script>
       <script src="./js/editSections.js"></script>
-      <!-- <script src="./js/moveSections.js"></script> -->
+      <script src="./js/moveSections.js"></script>
       <script src="./js/clearSections.js"></script>
       <script src="./js/exportSection.js"></script>
-      <script src="./js/importSection.js"></script>
-      <script src="./js/exportPage.js"></script>
+      <script src="./js/exportSections.js"></script>
+      <script src="./js/replaceSections.js"></script>
+      <script src="./js/importSections.js"></script>
+      <script src="./js/importPage.js"></script>
+      <!-- <script src="./js/exportPage.js"></script> -->
       <script src="./js/saveSections.js"></script>
       <script src="./js/emptySections.js"></script>
       <script src="./js/scrollTop.js"></script>
       <script src="./js/scrollBottom.js"></script>
+      <script src="./js/overlayBg.js"></script>
 
-      <script src="./js/getSectionsId.js"></script>
+      <script src="./js/selectSections.js"></script>
       
     </body>
 </html>

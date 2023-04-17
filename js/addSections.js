@@ -31,9 +31,7 @@ addSection1.addEventListener("click", function() {
             </div>
         </div>
         <div class="admin-buttons">
-        <input type="radio" name="selectedSection" class="section-radio" onchange="getSelectedSection()">
-
-            
+            <input type="radio" name="selectedSection" class="section-radio" onchange="getSelectedSection()">    
         </div>
     </section>
     `;

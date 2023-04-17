@@ -1,11 +1,14 @@
-function deleteSection(event) {
-  if (event.target.classList.contains("delete-button")) {
-    const section = event.target.closest("section");
-    section.remove();
-    saveToLocalStorage();
-  }
+
+function deleteSectionById(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+        section.remove();
+        saveToLocalStorage();
+    }
 }
-
-grid.addEventListener("click", deleteSection);
-
-
+  
+  var deleteBtn = document.getElementById('delete-btn');
+  deleteBtn.addEventListener('click', function() {
+  var sectionID = localStorage.getItem('sectionID');
+  deleteSectionById(sectionID);
+  });  
