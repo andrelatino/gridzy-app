@@ -1,3 +1,4 @@
+
 button img {
     width: 35px;
     margin:auto;
@@ -18,15 +19,15 @@ input.section-radio {
 }
 div#section-toolbar {
     display: grid;
-    place-content: start;
+    place-content: start center;
     grid-template-columns: repeat(6,auto);
     height: 72px;
     background: #ebebeb;
     position: sticky;
-    top: 0;
     z-index: 99999999999;
     width: 100%;
     gap: 1px;
+    top: 0;
 }
 
 input.section-checkbox {
@@ -142,8 +143,13 @@ div#buttons {
     box-sizing: border-box;
     display:grid;
     font-family:system-ui;
-    zoom: 65%;
+    transform: scale(0.7);
+    margin-left: -100px;
+    margin-right: -100px;
+    transform-origin:top;
+      
 }
+
 input#class-list-input {
     position: fixed!important;
     bottom: 0!important;
@@ -189,6 +195,10 @@ div#admin-footer {
 body *{
     display:grid;
     font-family:system-ui;
+    
+}
+body,html{
+    background: #ebebeb;
 }
 
 .background{
@@ -262,6 +272,7 @@ button#add-more {
     position: relative;
     transition: transform 0.5s;
     margin-bottom: 100px;
+    width: calc(100vw - 200px);
   }
   #my-modal {
     position: fixed;
@@ -325,3 +336,5 @@ button#add-more {
     background-color: #0062cc;
   }
    */
+
+   
