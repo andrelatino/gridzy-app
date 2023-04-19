@@ -30,7 +30,7 @@ input.section-radio {
     height: 35px;
     margin: 10px;
 }
-div#section-toolbar {
+/* div#section-toolbar {
     display: grid;
     place-content: start center;
     grid-template-columns: repeat(6,auto);
@@ -42,7 +42,7 @@ div#section-toolbar {
     gap: 1px;
     top: 0;
 
-}
+} */
 .section-toolbar button {
     border-top: 1px solid #b6b6b6;
 }
@@ -94,14 +94,15 @@ div#fixed-buttons {
     height: calc(100vh - 50px);
     display: grid;
     place-content: start center;
-    position: sticky;
+    position: fixed;
     top: 50px;
+    width: 100px;
     overflow-y: scroll;
     gap: 1px;
 }
 div#fixed-sidebar {
-    position:sticky;
-    top: 50px;    
+    position:fixed;
+    top: 50px;  
     width: 100px;
     display: grid;
     place-content: start center;
@@ -218,6 +219,7 @@ body *{
 }
 body,html{
     background: #ebebeb;
+    overflow-x: hidden;
 }
 
 .background{

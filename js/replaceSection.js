@@ -1,4 +1,4 @@
-function importSection() {
+function replaceSection() {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = '.json';
@@ -31,28 +31,20 @@ function importSection() {
           element.id = newId;
         });
   
-        // Add the new section to the grid div
-        const grid = document.getElementById('grid');
-        grid.innerHTML += section.innerHTML;
-  
-        // Save changes to local storage
+        const oldSectionId = localStorage.getItem('sectionID');
+        const oldSection = document.getElementById(oldSectionId);
+        if (oldSection && oldSection.parentNode) {
+          oldSection.parentNode.replaceChild(section.firstElementChild, oldSection);
+        }
         localStorage.setItem('sectionID', section.id);
-        const newSectionRadio = section.querySelector('.section-radio');
-        if (newSectionRadio) {
-          localStorage.setItem('sectionRadioID', newSectionRadio.id);
-        }
-        const sectionToolbar = section.querySelector('.section-toolbar');
-        if (sectionToolbar) {
-          localStorage.setItem('sectionToolbarID', sectionToolbar.id);
-        }
-        saveToLocalStorage();
       };
       reader.readAsText(file);
     };
     fileInput.click();
+  }
   
-    function generateNewId() {
-      return 'ID-' + Math.random().toString(36).substr(2, 10).toUpperCase();
-    }
+  // Helper function to generate new IDs with the format ID-XXXXXXXXXX
+  function generateNewId() {
+    return 'ID-' + Math.random().toString(36).substr(2, 10).toUpperCase();
   }
   

@@ -13,7 +13,7 @@ const addSectionToGrid1 = document.getElementById("grid");
 addSection1.addEventListener("click", function() {
     
     const customHTML = `    
-    <section id="${generateRandomID(10)}">
+    <section id="${generateRandomID(10)}" class="test-class">
         <div id="${generateRandomID(10)}">
             <img id="${generateRandomID(10)}" contenteditable="true" class="height-100vh width-100vw object-fit-cover position-absolute" alt="" src="./assets/svg/1-grid-light/wave-light-10.svg"/>
         </div>
@@ -53,7 +53,7 @@ addSection1.addEventListener("click", function() {
                 <span class="icon-text">Move Down</span>
                 </button>
 
-                <button onclick="importSection()">
+                <button onclick="replaceSection()">
                 <img src="./assets/svg/icons/import.svg">
                 <span class="icon-text">Replace</span>
                 </button>

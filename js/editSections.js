@@ -144,6 +144,7 @@ function getElementClasses() {
       if (inputElement) {
         inputElement.value = classes.join(' ');
         inputElement.setAttribute('data-element-id', elementId);
+        // saveElementId();
       }
     });
   });
@@ -152,6 +153,7 @@ function getElementClasses() {
 const observer = new MutationObserver((mutationsList, observer) => {
   console.log('DOM changed');
   getElementClasses();
+  saveToLocalStorage();
 });
 
 observer.observe(document, { childList: true, subtree: true });

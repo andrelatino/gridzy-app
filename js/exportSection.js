@@ -4,18 +4,18 @@ function exportSection() {
 
   if (section) {
     // Get the inner HTML content of the section element
-    const sectionHtml = section.innerHTML;
+    const sectionHtml = section.outerHTML;
 
     // Create a JSON object with the section ID and HTML content
     const sectionData = {
-      id: sectionId,
-      html: sectionHtml,
+      sectionId: sectionId,
+      sectionHtml: sectionHtml,
     };
 
     // Download the data as a JSON file
     const dataStr = JSON.stringify(sectionData, null, 2);
     const dataUri = `data:application/json;charset=utf-8,${encodeURIComponent(dataStr)}`;
-    const exportFileName = `${sectionId}.json`;
+    const exportFileName = `section-${sectionId}.json`;
 
     const downloadLink = document.createElement('a');
     downloadLink.setAttribute('href', dataUri);

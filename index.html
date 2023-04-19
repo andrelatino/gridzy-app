@@ -48,10 +48,11 @@
           <div id="sidebar">
             <div id="fixed-sidebar">
               
-              <button id="import"><img src="./assets/svg/icons/import.svg">Import</button>
+              <button id="import" onclick="importSection()"><img src="./assets/svg/icons/import.svg">Import</button>
               <button id="export"><img src="./assets/svg/icons/export.svg">Export</button>
               <button id="import"><img src="./assets/svg/icons/themes.svg">Themes</button>
               <button id="add-button1"><img src="./assets/svg/icons/themes.svg">Section1</button>
+
               <!-- <button id="import-section" onclick="importSection()">Import Section</button> -->
               <!-- <button id="import-page" onclick="importPage()"> <img src="./assets/svg/icons/import.svg">Import Page </button> -->
               
@@ -59,34 +60,40 @@
             </div> 
           </div>
            
-      </div>      
-      <!-- <script src="sw.js"></script> -->
-      
+      </div>   
+      <footer>
+        <!--PWA-->
+        <script src="./sw.js"></script>
+        <!--LEFT TOOLBAR-->
+        <script src="./js/savePage.js"></script>
+        <script src="./js/deletePage.js"></script>
+        <script src="./js/scrollPage.js"></script>
+        <!--SECTION TOOLBAR-->
+        <script src="./js/selectSection.js"></script>
+        <script src="./js/deleteSection.js"></script>
+        <script src="./js/duplicateSection.js"></script>
+        <script src="./js/moveSection.js"></script>
+        <script src="./js/replaceSection.js"></script>
+        <script src="./js/exportSection.js"></script>
+        <!--RIGHT TOOLBAR-->
+        <script src="./js/importSection.js"></script>
+        <script src="./js/addSections.js"></script>
+        
+        <!--BOTTOM TOOLBAR-->
+        <script src="./js/editSections.js"></script>
+        
+        <!--OTHERS FUNCTIONS-->
+        <script src="./js/gridHeight.js"></script>
+        <script src="./js/overlayBg.js"></script>
 
-      <script src="./js/addSections.js"></script>
-      <script src="./js/duplicateSections.js"></script>
-      <script src="./js/deleteSections.js"></script>
-      <script src="./js/editSections.js"></script>
-      <script src="./js/moveSections.js"></script>
-      <script src="./js/clearSections.js"></script>
-      <script src="./js/exportSection.js"></script>
-      <!-- <script src="./js/exportSections.js"></script> -->
-      <script src="./js/replaceSections.js"></script>
-      <script src="./js/importSection.js"></script>
-      <!-- <script src="./js/importPage.js"></script>
-      <script src="./js/import.js"></script> -->
-      <!-- <script src="./js/exportPage.js"></script> -->
-      <script src="./js/saveSections.js"></script>
-      <script src="./js/emptySections.js"></script>
-      <script src="./js/scrollTop.js"></script>
-      <script src="./js/scrollBottom.js"></script>
-      <script src="./js/overlayBg.js"></script>
-      <script src="./js/gridHeight.js"></script>
-      <script src="./js/toolbarSections.js"></script>
-
-      <script src="./js/selectSections.js"></script>
-
-      <script src="main.js"></script>
-
+        <!-- <script src="./js/exportSections.js"></script> -->
+        <!-- <script src="./js/importSection.js"></script> -->
+        <!-- <script src="./js/importPage.js"></script>
+        <script src="./js/import.js"></script> -->
+        <!-- <script src="./js/exportPage.js"></script> -->
+        <!-- <script src="./js/duplicateElements.js"></script> -->
+        
+        <script src="main.js"></script>
+      </footer>   
     </body>
 </html>
