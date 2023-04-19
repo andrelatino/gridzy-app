@@ -1,27 +1,25 @@
-function sectionToJSON(section) {
-  const json = {
-    id: section.id,
-    section: section.innerHTML
-  };
-  return json;
-}
-
-
-
 function exportSection() {
   const sectionId = localStorage.getItem('sectionID');
-  if (sectionId) {
-    const section = document.getElementById(sectionId);
-    const json = sectionToJSON(section);
-    const jsonString = JSON.stringify(json, null, 2);
-    const blob = new Blob([jsonString], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
+  const section = document.getElementById(sectionId);
+
+  if (section) {
+    // Get the inner HTML content of the section element
+    const sectionHtml = section.innerHTML;
+
+    // Create a JSON object with the section ID and HTML content
+    const sectionData = {
+      id: sectionId,
+      html: sectionHtml,
+    };
+
+    // Download the data as a JSON file
+    const dataStr = JSON.stringify(sectionData, null, 2);
+    const dataUri = `data:application/json;charset=utf-8,${encodeURIComponent(dataStr)}`;
+    const exportFileName = `${sectionId}.json`;
+
     const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.download = `section-${sectionId}.json`;
+    downloadLink.setAttribute('href', dataUri);
+    downloadLink.setAttribute('download', exportFileName);
     downloadLink.click();
-    URL.revokeObjectURL(url);
-  } else {
-    console.log('No section selected');
   }
 }

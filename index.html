@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <!-- <link rel="manifest" href="manifest.json"> -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <!-- <link rel="stylesheet" type="text/css" href="https://andrelatino.github.io/gridzy-css/gridzy.css"> -->
     <link rel="stylesheet" type="text/css" href="../gridzy-css/gridzy.css">
     
   </head>
     <body>
+      
       <div id="admin">
           <div id="buttons">
             <div id="fixed-buttons"> 
@@ -34,14 +35,7 @@
             <div id="content">   
               
               <div id="title"><h1>This is my great Website</h1> </div>      
-              <div id="section-toolbar" style="visibility:hidden;">
-                <button id="delete-btn" ><img src="./assets/svg/icons/delete.svg">Delete</button>
-                <button class="move-up-button"><img src="./assets/svg/icons/up.svg">Up</button>
-                <button class="move-down-button"><img src="./assets/svg/icons/down.svg">Down</button>
-                <button id="toolbar-duplicate" ><img src="./assets/svg/icons/duplicate.svg">Duplicate</button>                
-                <button onclick="replaceSection()"><img src="./assets/svg/icons/replace.svg">Replace</button>
-                <button onclick="exportSection()"><img src="./assets/svg/icons/export.svg">Export</button>    
-              </div>
+              
             <div id="holder">
               <div id="empty-section"></div>
               <div id="grid"></div>
@@ -66,7 +60,7 @@
           </div>
            
       </div>      
-      <script src="sw.js"></script>
+      <!-- <script src="sw.js"></script> -->
       
 
       <script src="./js/addSections.js"></script>
@@ -76,11 +70,11 @@
       <script src="./js/moveSections.js"></script>
       <script src="./js/clearSections.js"></script>
       <script src="./js/exportSection.js"></script>
-      <script src="./js/exportSections.js"></script>
+      <!-- <script src="./js/exportSections.js"></script> -->
       <script src="./js/replaceSections.js"></script>
-      <script src="./js/importSections.js"></script>
-      <script src="./js/importPage.js"></script>
-      <script src="./js/import.js"></script>
+      <script src="./js/importSection.js"></script>
+      <!-- <script src="./js/importPage.js"></script>
+      <script src="./js/import.js"></script> -->
       <!-- <script src="./js/exportPage.js"></script> -->
       <script src="./js/saveSections.js"></script>
       <script src="./js/emptySections.js"></script>
@@ -88,6 +82,7 @@
       <script src="./js/scrollBottom.js"></script>
       <script src="./js/overlayBg.js"></script>
       <script src="./js/gridHeight.js"></script>
+      <script src="./js/toolbarSections.js"></script>
 
       <script src="./js/selectSections.js"></script>
 

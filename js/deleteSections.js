@@ -1,14 +1,13 @@
-
-function deleteSectionById(sectionId) {
-    var section = document.getElementById(sectionId);
+function deleteSection() {
+    const sectionId = localStorage.getItem('sectionID');
+    const section = document.getElementById(sectionId);
+    
     if (section) {
-        section.remove();
-        saveToLocalStorage();
-    }
-}
+      section.remove();
+      localStorage.removeItem('sectionID');
+      localStorage.removeItem('sectionRadioID');
+      saveToLocalStorage();
+    }  
+  }
   
-  var deleteBtn = document.getElementById('delete-btn');
-  deleteBtn.addEventListener('click', function() {
-  var sectionID = localStorage.getItem('sectionID');
-  deleteSectionById(sectionID);
-  });  
+  

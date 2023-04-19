@@ -1,18 +1,17 @@
-
-// Function to generate a unique random ID
 function generateRandomID(length) {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    var result = 'ID-';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
   }
-  return result;
-}
+  
 const addSection1 = document.getElementById("add-button1");
 const addSectionToGrid1 = document.getElementById("grid");  
 addSection1.addEventListener("click", function() {
-
+    
     const customHTML = `    
     <section id="${generateRandomID(10)}">
         <div id="${generateRandomID(10)}">
@@ -29,7 +28,45 @@ addSection1.addEventListener("click", function() {
             </div>
         </div>
         <div class="admin-buttons">
-            <input type="radio" name="selectedSection" class="section-radio" onchange="getSelectedSection()">    
+            <div class="selectedInput">
+                <input id="${generateRandomID(10)}" type="radio" name="selectedSection" class="section-radio" onchange="getSectionId(); showSelectedSectionToolbar();">
+            </div>
+            <div id="${generateRandomID(10)}" class="section-toolbar" style="visibility:hidden;">
+                
+                <button id="delete-section" onclick="deleteSection()">
+                <img src="./assets/svg/icons/delete.svg">
+                <span class="icon-text">Delete</span>
+                </button>
+
+                <button id="duplicate-section" onclick="duplicateSection()">
+                <img src="./assets/svg/icons/duplicate.svg">
+                <span class="icon-text">Duplicate</span>
+                </button>
+
+                <button id="move-section-up" onclick="moveSectionUp()">
+                <img src="./assets/svg/icons/up.svg">
+                <span class="icon-text">Move Up</span>
+                </button>
+
+                <button id="move-section-down" onclick="moveSectionDown()">
+                <img src="./assets/svg/icons/down.svg">
+                <span class="icon-text">Move Down</span>
+                </button>
+
+                <button onclick="importSection()">
+                <img src="./assets/svg/icons/import.svg">
+                <span class="icon-text">Replace</span>
+                </button>
+
+                <button onclick="exportSection()">
+                <img src="./assets/svg/icons/export.svg">
+                <span class="icon-text">Export</span>
+                </button>   
+
+                
+
+          
+            </div>
         </div>
     </section>
     `;

@@ -1,21 +1,22 @@
-function moveSection(sectionId, direction) {
+
+function moveSectionUp() {
+  const sectionId = localStorage.getItem('sectionID');
   const section = document.getElementById(sectionId);
-  const sibling = direction === 'up' ? section.previousElementSibling : section.nextElementSibling;
-  if (sibling) {
-    section.parentNode.insertBefore(section, direction === 'up' ? sibling : sibling.nextElementSibling);
+  
+  if (section && section.previousElementSibling) {
+    section.parentNode.insertBefore(section, section.previousElementSibling);
     section.scrollIntoView({ behavior: 'smooth' });
     saveToLocalStorage();
   }
 }
 
-const moveUpBtn = document.querySelector('.move-up-button');
-moveUpBtn.addEventListener('click', function() {
+function moveSectionDown() {
   const sectionId = localStorage.getItem('sectionID');
-  moveSection(sectionId, 'up');
-});
-
-const moveDownBtn = document.querySelector('.move-down-button');
-moveDownBtn.addEventListener('click', function() {
-  const sectionId = localStorage.getItem('sectionID');
-  moveSection(sectionId, 'down');
-});
+  const section = document.getElementById(sectionId);
+  
+  if (section && section.nextElementSibling) {
+    section.parentNode.insertBefore(section.nextElementSibling, section);
+    section.scrollIntoView({ behavior: 'smooth' });
+    saveToLocalStorage();
+  }
+}
