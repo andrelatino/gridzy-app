@@ -1,38 +1,53 @@
-// function replaceJson(json) {
-//     const section = document.createElement('section');
-//     section.id = json.id;
-//     section.innerHTML = json.section;
-//     return section;
-//   }
+function importPage() {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "application/json";
+    fileInput.addEventListener("change", handleFileInputChange);
   
-//   function addPageToGrid(jsonSections) {
-//     const gridDiv = document.getElementById('grid');
+    fileInput.click();
   
-//     for (let i = 0; i < jsonSections.length; i++) {
-//       const json = jsonSections[i];
-//       const section = replaceJson(json);
-//       gridDiv.appendChild(section);
-//     }
+    function handleFileInputChange(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
   
-//     localStorage.setItem('sectionID', gridDiv.firstChild.id);
-//   }
+      reader.addEventListener("load", handleFileLoad);
+      reader.readAsText(file);
   
+      function handleFileLoad(event) {
+        const jsonData = event.target.result;
+        const data = JSON.parse(jsonData);
   
-//   function importPage() {
-//     const inputElement = document.createElement('input');
-//     inputElement.type = 'file';
-//     inputElement.accept = '.json';
-//     inputElement.onchange = (event) => {
-//       const file = event.target.files[0];
-//       const reader = new FileReader();
-//       reader.onload = (event) => {
-//         const jsonString = event.target.result;
-//         const jsonSections = JSON.parse(jsonString);
-//         addPageToGrid(jsonSections);
-//         saveToLocalStorage();
-//       };
-//       reader.readAsText(file);
-//     };
-//     inputElement.click();
-//   }
+        if (data.pageHtml) {
+          const newHtml = updateIds(data.pageHtml);
+          localStorage.setItem("pageHtml", newHtml);
+          document.getElementById("grid").innerHTML = newHtml;
+          
+        } else {
+          console.error("Invalid file format: missing pageHtml");
+        }
+      }
+    }
+  }
+  
+  function updateIds(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const elements = doc.querySelectorAll("*");
+  
+    const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+  
+    elements.forEach(element => {
+      if (element.id) {
+        let newId = "";
+        for (let i = 0; i < 10; i++) {
+          const randomIndex = Math.floor(Math.random() * chars.length);
+          newId += chars[randomIndex];
+        }
+        element.id = `ID-${newId}`;
+      }
+    });
+  
+    return doc.documentElement.innerHTML;
+  }
   

@@ -153,7 +153,7 @@ function getElementClasses() {
 const observer = new MutationObserver((mutationsList, observer) => {
   console.log('DOM changed');
   getElementClasses();
-  saveToLocalStorage();
+  savePage();
 });
 
 observer.observe(document, { childList: true, subtree: true });

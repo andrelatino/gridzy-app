@@ -1,7 +1,7 @@
-function saveToLocalStorage() {
+function savePage() {
     try {
-      localStorage.setItem("html", grid.innerHTML);
-      console.log('Saved to localStorage!');
+      localStorage.setItem("pageHtml", grid.innerHTML);
+      console.log('Page saved!');
     } catch (e) {
       console.log('Error saving to localStorage:', e);
     }
@@ -10,14 +10,14 @@ function saveToLocalStorage() {
   document.addEventListener("keydown", function(event) {
     if (event.ctrlKey && event.keyCode === 83) {
       // Call your function here
-      saveToLocalStorage();
+      savePage();
       
       // Prevent default browser behavior of saving the page
       event.preventDefault();
     }
   });
   
-  const html = localStorage.getItem("html");
+  const html = localStorage.getItem("pageHtml");
 if (html) {
   grid.innerHTML = html;
 }

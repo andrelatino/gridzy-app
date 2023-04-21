@@ -1,58 +1,57 @@
 function importSection() {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = '.json';
-    fileInput.onchange = function(event) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        const sectionData = JSON.parse(event.target.result);
-        const sectionHtml = sectionData.sectionHtml;
-        const sectionId = sectionData.sectionId;
-        const section = document.createElement('section');
-        section.innerHTML = sectionHtml;
-  
-        // Generate new IDs for the section and its child elements
-        const oldIds = new Set();
-        section.querySelectorAll('[id]').forEach((element) => {
-          oldIds.add(element.id);
-        });
-        let newIds = new Map();
-        oldIds.forEach((oldId) => {
-          const newId = generateNewId();
-          newIds.set(oldId, newId);
-        });
-  
-        // Update the IDs in the section and its child elements
-        section.id = newIds.get(sectionId) || generateNewId();
-        section.querySelectorAll('[id]').forEach((element) => {
-          const oldId = element.id;
-          const newId = newIds.get(oldId) || generateNewId();
-          element.id = newId;
-        });
-  
-        // Add the new section to the grid div
-        const grid = document.getElementById('grid');
-        grid.innerHTML += section.innerHTML;
-  
-        // Save changes to local storage
-        localStorage.setItem('sectionID', section.id);
-        const newSectionRadio = section.querySelector('.section-radio');
-        if (newSectionRadio) {
-          localStorage.setItem('sectionRadioID', newSectionRadio.id);
-        }
-        const sectionToolbar = section.querySelector('.section-toolbar');
-        if (sectionToolbar) {
-          localStorage.setItem('sectionToolbarID', sectionToolbar.id);
-        }
-        saveToLocalStorage();
-      };
-      reader.readAsText(file);
+  const fileInputJS = document.createElement('input');
+  fileInputJS.type = 'file';
+  fileInputJS.accept = '.json';
+  fileInputJS.onchange = function(eventJS) {
+    const fileJS = eventJS.target.files[0];
+    const readerJS = new FileReader();
+    readerJS.onload = function(eventJS) {
+      const sectionDataJS = JSON.parse(eventJS.target.result);
+      const sectionHtmlJS = sectionDataJS.sectionHtml;
+      const sectionIdJS = sectionDataJS.sectionId;
+      const sectionJS = document.createElement('section');
+      sectionJS.innerHTML = sectionHtmlJS;
+
+      // Generate new IDs for the section and its child elements
+      const oldIdsJS = new Set();
+      sectionJS.querySelectorAll('[id]').forEach((elementJS) => {
+        oldIdsJS.add(elementJS.id);
+      });
+      let newIdsJS = new Map();
+      oldIdsJS.forEach((oldIdJS) => {
+        const newIdJS = generateNewIdJS();
+        newIdsJS.set(oldIdJS, newIdJS);
+      });
+
+      // Update the IDs in the section and its child elements
+      sectionJS.id = newIdsJS.get(sectionIdJS) || generateNewIdJS();
+      sectionJS.querySelectorAll('[id]').forEach((elementJS) => {
+        const oldIdJS = elementJS.id;
+        const newIdJS = newIdsJS.get(oldIdJS) || generateNewIdJS();
+        elementJS.id = newIdJS;
+      });
+
+      // Add the new section to the grid div
+      const gridJS = document.getElementById('grid');
+      gridJS.innerHTML += sectionJS.innerHTML;
+
+      // Save changes to local storage
+      localStorage.setItem('sectionID', sectionJS.id);
+      const newSectionRadioJS = sectionJS.querySelector('.section-radio');
+      if (newSectionRadioJS) {
+        localStorage.setItem('sectionRadioID', newSectionRadioJS.id);
+      }
+      const sectionToolbarJS = sectionJS.querySelector('.section-toolbar');
+      if (sectionToolbarJS) {
+        localStorage.setItem('sectionToolbarID', sectionToolbarJS.id);
+      }
+      savePage();
     };
-    fileInput.click();
-  
-    function generateNewId() {
-      return 'ID-' + Math.random().toString(36).substr(2, 10).toUpperCase();
-    }
+    readerJS.readAsText(fileJS);
+  };
+  fileInputJS.click();
+
+  function generateNewIdJS() {
+    return 'ID-' + Math.random().toString(36).substr(2, 10).toUpperCase();
   }
-  
+}  

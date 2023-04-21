@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="manifest" href="./manifest.json">
+    <!-- <link rel="manifest" href="./manifest.json"> -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" type="text/css" href="https://andrelatino.github.io/gridzy-css/gridzy.css">
     <!-- <link rel="stylesheet" type="text/css" href="../gridzy-css/gridzy.css"> -->
@@ -15,16 +15,11 @@
       <div id="admin">
           <div id="buttons">
             <div id="fixed-buttons"> 
-              <!-- <button id="clear-button">Clear</button>
-              <button id="export-button">Export</button>
-              <button id="scroll-to-top-btn">Top</button>
-              <button id="scroll-to-bottom-btn">Bottom</button>
-              <button onclick="exportAllSections()">Export Page</button> -->
-              <button id="save-button"><img src="./assets/svg/icons/save.svg">Save</button>
+              
+              <button id="save-button" onclick="savePage()"><img src="./assets/svg/icons/save.svg">Save</button>
               <button id="clear-button"><img src="./assets/svg/icons/delete.svg">Delete</button>
               <button id="scroll-to-top-btn"><img src="./assets/svg/icons/up.svg">Up</button>
               <button id="scroll-to-bottom-btn"><img src="./assets/svg/icons/down.svg">Down</button>
-
 
             </div>            
           </div>
@@ -48,23 +43,24 @@
           <div id="sidebar">
             <div id="fixed-sidebar">
               
-              <button id="import" onclick="importSection()"><img src="./assets/svg/icons/import.svg">Import</button>
-              <button id="export"><img src="./assets/svg/icons/export.svg">Export</button>
-              <button id="import"><img src="./assets/svg/icons/themes.svg">Themes</button>
+              <button id="import" onclick="openOverlay(); importModal();">
+                <img src="./assets/svg/icons/import.svg">
+                Import
+              </button>
+              <button id="export" onclick="openOverlay(); exportModal();">
+                <img src="./assets/svg/icons/export.svg">
+                Export
+              </button>
+              <button><img src="./assets/svg/icons/themes.svg">Themes</button>
               <button id="add-button1"><img src="./assets/svg/icons/themes.svg">Section1</button>
-
-              <!-- <button id="import-section" onclick="importSection()">Import Section</button> -->
-              <!-- <button id="import-page" onclick="importPage()"> <img src="./assets/svg/icons/import.svg">Import Page </button> -->
-              
-             
             </div> 
           </div>
            
       </div>   
       <footer>
         <!--PWA-->
-        <script src="./main.js"></script>
-        <script src="./sw.js"></script>
+        <!-- <script src="./main.js"></script> -->
+        <!-- <script src="./sw.js"></script> -->
         <!--LEFT TOOLBAR-->
         <script src="./js/savePage.js"></script>
         <script src="./js/deletePage.js"></script>
@@ -76,8 +72,14 @@
         <script src="./js/moveSection.js"></script>
         <script src="./js/replaceSection.js"></script>
         <script src="./js/exportSection.js"></script>
+        <script src="./js/toolbarSection.js"></script>
         <!--RIGHT TOOLBAR-->
-        <!-- <script src="./js/importSection.js"></script> -->
+        <script src="./js/importSection.js"></script>
+        <script src="./js/importModal.js"></script>
+        <script src="./js/exportModal.js"></script>
+        <script src="./js/exportHtml.js"></script>
+        <script src="./js/importPage.js"></script>
+        <script src="./js/exportPage.js"></script>
         <script src="./js/addSections.js"></script>
         
         <!--BOTTOM TOOLBAR-->
@@ -85,15 +87,8 @@
         
         <!--OTHERS FUNCTIONS-->
         <script src="./js/gridHeight.js"></script>
-        <script src="./js/overlayBg.js"></script>
+        <script src="./js/openOverlay.js"></script>
 
-        <!-- <script src="./js/exportSections.js"></script> -->
-        <!-- <script src="./js/importSection.js"></script> -->
-        <!-- <script src="./js/importPage.js"></script>
-        <script src="./js/import.js"></script> -->
-        <!-- <script src="./js/exportPage.js"></script> -->
-        <!-- <script src="./js/duplicateElements.js"></script> -->
-        
        
       </footer>   
     </body>

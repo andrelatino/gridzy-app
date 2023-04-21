@@ -1,3 +1,73 @@
+body,html{
+    background: #ebebeb;
+    overflow-x: hidden;
+}
+button.close-button {
+    place-content: center!important;
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    width: 50px!important;
+    background: red!important;
+    border-radius: 50%;
+    height: 50px!important;
+}
+.import-modal {
+    
+    z-index: 9999;
+    position: fixed;
+    display: grid;
+    place-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #b9b9b9;
+    gap: 1px;
+}
+.import-modal button {
+    background: white;
+    width: 175px;
+    height: 65px;
+    display: grid;
+    place-content: center start;
+    grid-template-columns: 50px auto;
+    align-items: center;
+}
+
+.export-modal {
+    
+    z-index: 9999;
+    position: fixed;
+    display: grid;
+    place-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #b9b9b9;
+    gap: 1px;
+}
+.export-modal button {
+    background: white;
+    width: 175px;
+    height: 65px;
+    display: grid;
+    place-content: center start;
+    grid-template-columns: 50px auto;
+    align-items: center;
+}
+.modal-content {
+    position: relative;
+    padding: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #fff;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px
+  }
 .selectedInput {
     display: grid;
     place-content: center;
@@ -55,16 +125,6 @@ input.section-checkbox {
     margin-right: 10px;
     z-index: 9999999999;
 }
-.modal {
-    position: fixed;
-    right: 0;
-    width: 200px;
-    padding: 20px;
-    background: #ebebeb;
-    display: grid;
-    height: 100vh;
-    place-content: start center;
-}
 
 ul {
     padding-left: 20px;
@@ -84,7 +144,7 @@ div#title {
     background: #ebebeb;
     position: relative;
     top: 0;
-    z-index: 9999999;
+    /* z-index: 9999999; */
     height: 50px;
     display: grid;
     place-content: center;
@@ -217,10 +277,7 @@ body *{
     font-family:system-ui;
     
 }
-body,html{
-    background: #ebebeb;
-    overflow-x: hidden;
-}
+
 
 .background{
     z-index:-1!important;
@@ -315,22 +372,4 @@ button#add-more {
     width: 100px;
     height: 100vh;
   }
-  .modal-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
-    max-width: 100%;
-    max-height: 100%;
-    overflow: auto;
-    background-color: #fff;
-    overflow-y: scroll;
-  }
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 16px
-  }
+  

@@ -6,7 +6,7 @@ function deleteSection() {
       section.remove();
       localStorage.removeItem('sectionID');
       localStorage.removeItem('sectionRadioID');
-      saveToLocalStorage();
+      savePage();
     }  
   }
   

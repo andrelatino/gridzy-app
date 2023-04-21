@@ -29,7 +29,7 @@ function getSectionId() {
     localStorage.removeItem('sectionToolbarID');
     console.log('No section selected');
   }
-  saveToLocalStorage();
+  savePage();
 }
 
 
@@ -51,5 +51,5 @@ function showSelectedSectionToolbar() {
   if (selectedSectionToolbar && document.getElementById(selectedSectionRadioId).checked) {
     selectedSectionToolbar.style.visibility = 'visible';
   }
-  saveToLocalStorage();
+  savePage();
 }

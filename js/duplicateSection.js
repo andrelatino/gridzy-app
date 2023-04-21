@@ -39,6 +39,6 @@ function duplicateSection() {
 
     // Scroll to the new section
     newSection.scrollIntoView({ behavior: 'smooth' });
-    saveToLocalStorage();
+    savePage();
   }
 }
