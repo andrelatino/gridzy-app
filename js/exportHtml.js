@@ -16,14 +16,14 @@ function exportHtml(grid) {
 
   // Create the HTML file
   const html = `
-    <html>
+    <!DOCTYPE html>
+    <html lang="fr" translate="no">
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Add custom head content here -->
-        <link rel="stylesheet" type="text/css" href="https://andrelatino.github.io/gridzy-css/gridzy.css">  
+        <style>html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0;font-family:system-ui;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}</style>
       </head>
-      <body style="overflow-x:hidden;">
+      <body>
         <div class="page">      
           ${clonedGrid.innerHTML}
         </div>
@@ -39,17 +39,6 @@ function exportHtml(grid) {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   
-  a.download = `html-${generateHtmlId(10)}`; 
+  a.download = `html-${generateRandomID(7)}`; 
   a.click();
 }
-
-function generateHtmlId() {
-  const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-  let id = "";
-  for (let i = 0; i < 10; i++) {
-    const randomIndex = Math.floor(Math.random() * chars.length);
-    id += chars[randomIndex];
-  }
-  return "ID-" + id;
-}
-

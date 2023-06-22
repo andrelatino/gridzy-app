@@ -1,95 +1,298 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="manifest" href="./manifest.json">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" type="text/css" href="https://andrelatino.github.io/gridzy-css/gridzy.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../gridzy-css/gridzy.css"> -->
-    
-  </head>
-    <body>
-      
-      <div id="admin">
-          <div id="buttons">
-            <div id="fixed-buttons"> 
-              
-              <button id="save-button" onclick="savePage()"><img src="./assets/svg/icons/save.svg">Save</button>
-              <button id="clear-button"><img src="./assets/svg/icons/delete.svg">Delete</button>
-              <button id="scroll-to-top-btn"><img src="./assets/svg/icons/up.svg">Up</button>
-              <button id="scroll-to-bottom-btn"><img src="./assets/svg/icons/down.svg">Down</button>
+<html id="builder">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="./css/editor.css">
+		<link rel="stylesheet" type="text/css" href="./css/image.css">
+		<link rel="stylesheet" type="text/css" href="./css/image-github.css">
+		<link rel="stylesheet" type="text/css" href="./css/video-github.css">
+		<link rel="stylesheet" type="text/css" href="./css/file-github.css">
+		<link rel="stylesheet" type="text/css" href="./css/openai-text.css">
+		<link rel="stylesheet" type="text/css" href="./css/icon.css">
+		<link rel="stylesheet" type="text/css" href="./css/video.css">
+		<script src="./js/header/headerResetCss.js"></script>
+	</head>
+	<body>
+		<div id="editor" style="visibility:hidden;"></div>
+		<div id="image-modal" style="display:none;"></div>
+		
+		<div id="image-github-modal" style="visibility:hidden;">			
+			<div id="image-github-buttons"><button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
+			<div class="image-github-modal-content">	
+				
 
-            </div>            
-          </div>
-          
-        
-          <div id="page">   
-            
-            <div id="content">   
-              
-              <div id="title"><h1>This is my great Website</h1> </div>      
-              
-            <div id="holder">
-              <div id="empty-section"></div>
-              <div id="grid"></div>
-            </div>
-            <input id="class-list-input">     
-            </div>
+			  <div class="image-github-input-container"><input type="file" id="image-github-input" accept="image/*" onchange="document.getElementById('image-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>		
+			  <div id="image-github-preview"><img id="image-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>			  
+			  <button onclick="githubImageCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button>
+			  <button id="image-github-upload-button">Upload your image</button>
+			</div>
+		</div>
 
-          </div> 
+		<div id="video-github-modal" style="visibility:hidden;">			
+			<div id="video-github-buttons"><button id="video-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
+			<div class="video-github-modal-content">		
+			  <div class="video-github-input-container"><input type="file" id="video-github-input" accept="video/*" onchange="document.getElementById('video-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>		
+			  <div id="video-github-preview"><img id="video-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>			  
+			  <button onclick="githubImageCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button>
+			  <button id="video-github-upload-button">Upload your video</button>
+			</div>
+		</div>
 
-          <div id="sidebar">
-            <div id="fixed-sidebar">
-              
-              <button id="import" onclick="openOverlay(); importModal();">
-                <img src="./assets/svg/icons/import.svg">
-                Import
-              </button>
-              <button id="export" onclick="openOverlay(); exportModal();">
-                <img src="./assets/svg/icons/export.svg">
-                Export
-              </button>
-              <button><img src="./assets/svg/icons/themes.svg">Themes</button>
-              <button id="add-button1"><img src="./assets/svg/icons/themes.svg">Section1</button>
-            </div> 
-          </div>
-           
-      </div>   
-      <footer>
-        <!--PWA-->
-        <script src="./main.js"></script> -->
-        <script src="./sw.js"></script>
-        <!--LEFT TOOLBAR-->
-        <script src="./js/savePage.js"></script>
-        <script src="./js/deletePage.js"></script>
-        <script src="./js/scrollPage.js"></script>
-        <!--SECTION TOOLBAR-->
-        <script src="./js/selectSection.js"></script>
-        <script src="./js/deleteSection.js"></script>
-        <script src="./js/duplicateSection.js"></script>
-        <script src="./js/moveSection.js"></script>
-        <script src="./js/replaceSection.js"></script>
-        <script src="./js/exportSection.js"></script>
-        <script src="./js/toolbarSection.js"></script>
-        <!--RIGHT TOOLBAR-->
-        <script src="./js/importSection.js"></script>
-        <script src="./js/importModal.js"></script>
-        <script src="./js/exportModal.js"></script>
-        <script src="./js/exportHtml.js"></script>
-        <script src="./js/importPage.js"></script>
-        <script src="./js/exportPage.js"></script>
-        <script src="./js/addSections.js"></script>
-        
-        <!--BOTTOM TOOLBAR-->
-        <script src="./js/editSections.js"></script>
-        
-        <!--OTHERS FUNCTIONS-->
-        <script src="./js/gridHeight.js"></script>
-        <script src="./js/openOverlay.js"></script>
+		<div id="file-github-modal" style="visibility:hidden;">			
+			<div id="file-github-buttons"><button id="file-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
+			<div class="file-github-modal-content">		
+			  <div class="file-github-input-container"><input type="file" id="file-github-input" accept=".docx, .pptx, .xlsx, .txt, .pdf, .zip, .gz, .tgz" onchange="document.getElementById('file-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>		
+			  <div id="file-github-preview"><img id="file-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>			  
+			  <button onclick="githubFileCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button>
+			  <button id="file-github-upload-button">Upload your file</button>
+			</div>
+		</div>
 
-       
-      </footer>   
-    </body>
+
+		<div id="admin">
+			<div id="buttons">
+				<div id="fixed-buttons">
+					<div class="tooltip">
+						<button onclick="editorShow();">
+							<img src="./assets/svg/icons/edit.svg">
+							<span class="tooltiptext">Open Editor</span>
+						</button>
+					</div>
+					<div class="tooltip">
+						<button onclick="pageSaveProd();">
+							<img src="./assets/svg/icons/save.svg">
+							<span class="tooltiptext">Save Page</span>
+						</button>
+					</div>
+					<button id="create-page-button" onclick="createNewPage()">Add</button>
+					<button id="deletePage">Delete</button>
+					<button onclick="updatePage()">Update</button>					
+					<button id="clear-button" title="Clear page"><img src="./assets/svg/icons/delete.svg"><span class="hidden"> Delete </span></button>
+					<button id="import" onclick="openOverlay(); importModal();"><img src="./assets/svg/icons/import.svg"> Import </button>
+					<button id="export" onclick="openOverlay(); exportModal();"><img src="./assets/svg/icons/export.svg"> Export </button>
+					<button id="scroll-to-top-btn"><img src="./assets/svg/icons/up.svg"><span class="hidden"> Up </span></button>
+					<button id="scroll-to-bottom-btn"><img src="./assets/svg/icons/down.svg"><span class="hidden"> Down </span></button>
+					<button onclick="addSection1()">Add Section1</button>
+					<button onclick="addSection2()">Add Section2</button>					
+				</div>
+			</div>
+			<div id="page">
+				<div id="content">
+					
+					<div id="holder">
+						<div id="empty-section"></div>
+						<div id="grid"></div>
+						
+					</div>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div id="fixed-sidebar">
+								
+					<button id="imageWebSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/image.svg"> Free Images </button>
+					<button id="iconWebSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/icon.svg"> Free Icons </button>
+					<button id="videoWebSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/video.svg">Free Videos </button>					
+					<button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/image.svg">My Images</button>
+					<button id="videoGithubSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/video.svg">My Videos</button>
+					<button id="fileGithubSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/file.svg">My Files</button>
+					<button id="chatIaSidebarButton" onclick="sidebarOpenClose(this);"> <img src="./assets/svg/icons/file.svg">ChatGPT</button>				
+				</div>
+			</div>
+		</div>
+		<div id="image-sidebar" style="right:-300px">
+			<div id="image-sidebar-search">
+				<input type="text" id="image-sidebar-search-input" placeholder="Search..." required>
+				<button type="submit" id="image-sidebar-search-button" onclick="closeImageSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+			</div>
+			
+			<div id="image-sidebar-settings">
+				<input type="text" id="image-settings-width" placeholder="Width" value = "1280" required>
+				<input type="text" id="image-settings-height" placeholder="Height" value = "720" required>
+				<input type="text" id="image-settings-type" placeholder="Orientation" value = "landscape" required>			
+			</div>
+			<p id="image-sidebar-total"></p>
+			<div id="image-sidebar-grid"></div>
+			<div id="image-sidebar-next-div">
+				<button id="image-sidebar-next-button" onclick="loadNextPage();"> + </button>
+			</div>
+		</div>	
+
+		<div id="icon-sidebar" style="right:-300px">
+			<div id="icon-sidebar-header">
+				<input type="text" id="icon-sidebar-input" placeholder="Search..." required>
+				<button id="icon-sidebar-search" onclick="closeIconSidebar();"><img src="./assets/svg/icons/close.svg"></button>	
+			</div>
+			<p id="icon-sidebar-total"></p>
+			<div id="icon-sidebar-grid"></div>
+			<div id="icon-sidebar-next-div">
+				<button id="icon-sidebar-next-button" onclick="loadNextIcons();"> + </button>
+			</div>
+		</div>
+
+		<div id="video-sidebar" style="right:-300px">
+			<div id="video-sidebar-header">
+				<input type="text" id="video-sidebar-input" placeholder="Search..." required>
+				<button id="video-sidebar-search" onclick="closeVideoSidebar();"><img src="./assets/svg/icons/close.svg"></button>	
+			</div>
+			<p id="video-sidebar-total"></p>
+			<div id="video-sidebar-grid"></div>
+			<div id="video-sidebar-next-div">
+				<button id="video-sidebar-next-button" onclick="loadNextVideos();"> + </button>
+			</div>
+		</div>
+
+
+		<div id="image-github-sidebar" style="right:-300px">
+			<div id="image-github-sidebar-search">
+				<input type="text" id="image-github-sidebar-search-input" placeholder="Search..." required>
+				<button type="submit" id="image-github-sidebar-add-new" onclick="githubUploadImage();"><img src="./assets/svg/icons/add-white.svg"></button>
+				<button type="submit" id="image-github-sidebar-search-button" onclick="closeGithubImageSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+			</div>			
+			<p id="image-github-sidebar-total"></p>
+			<div id="image-github-sidebar-grid"></div>
+			<div id="image-github-sidebar-next-div">
+				<button id="image-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
+			</div>
+		</div>
+		
+		<div id="video-github-sidebar" style="right:-300px">
+			<div id="video-github-sidebar-search">
+				<input type="text" id="video-github-sidebar-search-input" placeholder="Search..." required>
+				<button type="submit" id="video-github-sidebar-add-new" onclick="githubUploadVideo();"><img src="./assets/svg/icons/add-white.svg"></button>
+				<button type="submit" id="video-github-sidebar-search-button" onclick="closeGithubVideoSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+			</div>			
+			<p id="video-github-sidebar-total"></p>
+			<div id="video-github-sidebar-grid"></div>
+			<div id="video-github-sidebar-next-div">
+				<button id="video-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
+			</div>
+		</div>	
+
+		<div id="file-github-sidebar" style="right:-300px">
+			<div id="file-github-sidebar-search">
+				<input type="text" id="file-github-sidebar-search-input" placeholder="Search..." required>
+				<button type="submit" id="file-github-sidebar-add-new" onclick="githubUploadFile();"><img src="./assets/svg/icons/add-white.svg"></button>
+				<button type="submit" id="file-github-sidebar-search-button" onclick="closeGithubFileSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+			</div>			
+			<p id="file-github-sidebar-total"></p>
+			<div id="file-github-sidebar-grid"></div>
+			<div id="file-github-sidebar-next-div">
+				<button id="file-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
+			</div>
+		</div>	
+
+		<div id="text-openai-sidebar" style="right:-300px">
+			<div id="text-openai-sidebar-search">
+				<p id="text-openai-sidebar-search-input">ChatGPT</p>
+				<button type="submit" id="text-openai-sidebar-search-button" onclick="closeOpenaiTextSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+			</div>			
+			<div id="text-openai-textarea-container"> 
+				<textarea id="promptInput" placeholder="How can i help you today?"></textarea>
+				<button id= "text-openai-search-button"onclick="OpenaiFetchAPI()">SEND</button>
+			</div>
+			<div id="text-openai-sidebar-grid">
+				
+				<div id="resultContainer"></div>
+			</div>
+			
+		</div>	
+
+
+
+		<footer>
+
+			<script src="./js/dragelements.js"></script>
+			<script src="./js/image/imageSearch.js"></script>
+
+			
+			<script src="./js/image/imageAlt.js"></script>
+			<script src="./js/image/imageModal.js"></script>
+			<script src="./js/image/imageButtons.js"></script>
+			<script src="./js/image/imageUpdate.js"></script>
+			
+			
+			<script src="./js/github/page/githubSha.js"></script>
+			<script src="./js/github/page/githubAdd.js"></script>
+			<script src="./js/github/page/githubUpdate.js"></script>
+			<script src="./js/github/page/githubDelete.js"></script>
+
+			<script src="./js/github/image/githubLoadImages.js"></script>
+			<script src="./js/github/image/githubSearchImages.js"></script>
+			<script src="./js/github/image/githubUploadImages.js"></script>
+
+			<script src="./js/github/video/githubLoadVideos.js"></script>
+			<script src="./js/github/video/githubSearchVideos.js"></script>
+			<script src="./js/github/video/githubUploadVideos.js"></script>
+
+			<script src="./js/github/file/githubLoadFiles.js"></script>
+			<script src="./js/github/file/githubUploadFiles.js"></script>
+			<script src="./js/github/file/githubSearchFiles.js"></script>
+
+			<script src="./js/openai/text/openaiSearchAnswer.js"></script>
+			
+			<script src="./js/page/pageGridObserver.js"></script>
+			<script src="./js/page/pageJsonImport.js"></script>
+			<script src="./js/page/pageJsonExport.js"></script>
+			<script src="./js/page/pageSaveProd.js"></script>
+			<script src="./js/page/pageSaveAdmin.js"></script>
+			<script src="./js/page/pageResize.js"></script>
+
+			<script src="./js/sidebar/sidebarOpenClose.js"></script>
+
+
+			
+
+			<script src="./js/gridHeight.js"></script>
+			<script src="./js/moveSection.js"></script>
+			<script src="./js/replaceSection.js"></script>
+			<script src="./js/exportSection.js"></script>
+
+			
+			
+			<script src="./js/deletePage.js"></script>
+		 
+			 
+			<script src="./js/cssModal.js"></script>
+			<script src="./js/addSections.js"></script>
+			
+			
+			
+			
+			<script src="./js/exportModal.js"></script>
+			<script src="./js/openOverlay.js"></script> 
+			<script src="./js/importModal.js"></script>
+			
+			<script src="./js/exportHtml.js"></script>
+			<script src="./js/editor/editorHtml.js"></script> 
+			<script src="./js/addCustomCss.js"></script>
+
+			
+
+			<script src="./js/section/sectionToolbar.js"></script>
+			<script src="./js/section/sectionJsonImport.js"></script>
+
+			<script src="./js/element/elementToolbar.js"></script>
+
+			
+
+			
+			<script src="./js/editor/editorButtons.js"></script>
+			<script src="./js/editor/editorGetIds.js"></script>
+			<script src="./js/page/pageSaveProd.js"></script>
+
+
+			<script src="./js/icon/iconSearch.js"></script>
+			<script src="./js/video/videoSearch.js"></script>
+
+			<script src="./js/image/imageGetUrl.js"></script>
+
+			<script src="./js/page/pageBuilderSave.js"></script>
+
+			
+
+		</footer>
+		
+	</body>
 </html>

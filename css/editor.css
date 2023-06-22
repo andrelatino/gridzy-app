@@ -1,0 +1,113 @@
+#editor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 999999;
+    box-shadow: 1px 1px 16px #8080806e;
+    min-height: 250px;
+    min-width: 375px;
+    background: white;
+    padding: 20px;
+}
+
+#editor-content{
+    display:grid;
+    grid-template-columns:1fr 100px;
+}
+#editor-header {
+    display: grid;
+    grid-column: 1 / -1;
+    place-content: space-around;
+    grid-template-columns: 50px 1fr 50px;
+}
+div#editor-buttons {
+    display: flex;
+    place-content: space-evenly;
+    background: white;
+    max-height: 35px;
+}
+p#editor-title {
+    display: grid;
+    place-content: center;
+}
+div#editor-list-title {
+    display: grid;
+    place-content: center;
+    background: white;
+    height: 35px;
+    border-left:1px solid #bdbcbc;
+}
+.editor-list-content {
+    background: #202123;
+    height: calc(100% - 35px);
+    min-height: 250px;
+    overflow: auto;
+}
+.editor-list-content ul {
+    padding: 10px;
+    height: 250px;
+}
+#editor-css-inputs {
+    background: red;
+}
+.editor-list-content button {
+    background: #202123;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+    color: white;
+    border-bottom: 1px solid #3a3a3a;
+    height: 20px;
+    padding: 0;
+}
+
+textarea#all-textarea, textarea#xl-textarea, textarea#l-textarea, textarea#m-textarea, textarea#s-textarea, textarea#xs-textarea {
+    border: none;
+    background: red;
+    color: white;
+    padding: 20px;
+    box-shadow: none;
+    height: auto;
+    min-height: 250px;
+    min-width: 275px;
+    white-space: pre-line !important;
+    list-style: disc inside !important;
+    font-size: medium;
+    line-height: 1.5;
+    width:100%;
+    height:100%;
+    resize:none;
+    
+}
+/* .admin-tag::before {
+    content: attr(tag);
+    position: absolute;
+    background-color: yellow;
+    color: black;
+    font-size: 20px!important;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    min-width: 50px;
+   top: 0;
+  } */
+  .admin-outline {
+    outline: blue solid 5px;
+    border-radius:10px;
+
+  }
+  .admin-index2{
+    z-index:2;
+  }
+  .admin-index1{
+    z-index:1;
+  }
+  button#editor-drag {
+    width: 35px;
+    padding: 6px;
+}
+  

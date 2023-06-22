@@ -1,0 +1,242 @@
+/*MODAL*/
+#image-github-modal{
+display: grid;
+z-index: 9999;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: #b9b9b9;
+gap: 1px;
+background: white;
+width:360px;
+height: auto;
+}
+#image-github-container {
+position: absolute;
+width: 300px;
+}
+#image-github-buttons {
+display: flex;
+place-content: baseline;
+}
+#image-github-all,
+#image-github-xs,
+#image-github-s,
+#image-github-m,
+#image-github-l,
+#image-github-xl
+{
+display: grid;
+grid-template-columns: 200px 100px;
+position: absolute;
+}
+#image-github-all-thumbnail,
+#image-github-xs-thumbnail,
+#image-github-s-thumbnail,
+#image-github-m-thumbnail,
+#image-github-l-thumbnail ,
+#image-github-xl-thumbnail
+{
+height: 300px;
+width: 300px;
+object-fit: contain;
+background: #f1f1f1;
+padding: 10%;
+grid-column: 1 / -1;
+}
+#image-github-all-input,
+#image-github-xs-input,
+#image-github-s-input,
+#image-github-m-input,
+#image-github-l-input,
+#image-github-xl-input
+{
+height: 35px;
+border: none;
+background: #ffffff;
+padding: 15px;
+}
+#image-github-all-save,
+#image-github-xs-save,
+#image-github-s-save,
+#image-github-m-save,
+#image-github-l-save,
+#image-github-xl-save{
+background: #2196f3;
+color: white;  
+}
+#image-github-drag,
+#image-github-modal-search {
+width: 35px;
+padding: 6px;
+}
+/*SIDEBAR*/
+#image-github-sidebar{
+width: 300px;
+height: 100%;
+position: fixed;
+overflow: auto;
+top: 0px;
+right: -300px;
+background-color: rgb(241, 241, 241);
+z-index: 9999;
+}
+#image-github-sidebar-search {
+display: grid;
+grid-template-columns: 1fr 50px 50px;
+position: sticky;
+top: 0;
+z-index: 1;
+}
+#image-github-sidebar-search-input {
+padding: 10px;
+border: none;
+text-align: center;
+}
+#image-github-sidebar-search-button {
+background: red;
+color: white;
+border: none;
+padding: 15px;
+}
+#image-github-sidebar-add-new {
+background: #2d7dec;
+}
+#image-github-sidebar-total {
+text-align: center;
+color: #aeaeae;
+padding-top: 15px;
+font-size: 12px;
+}
+#image-github-sidebar-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(auto,170px));
+place-content: space-evenly;
+grid-gap: 40px;
+padding:40px;  
+}
+.image-github-sidebar-items{ 
+position:relative;
+overflow: hidden;
+background:white;
+border-radius: 10px;
+box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+}
+.image-github-sidebar-alt {
+display: grid;
+margin: 10px;
+font-size: small;
+color: grey;
+}
+#image-github-sidebar-next-div {
+display: grid;
+place-content: center;
+}
+#image-github-sidebar-next-button {
+background: #007dec;
+color: white;
+height: 50px;
+width: 50px;
+border-radius: 50%;
+margin-bottom: 100px;
+font-size: 20px;
+}
+#image-github-sidebar-settings {
+display: grid;
+grid-template-columns: 75px 75px auto;
+}
+#image-github-sidebar-settings select,
+#image-github-sidebar-settings input {
+border: none;
+padding: 5%;
+text-align: center;
+color: #cbcbcb;
+font-family: system-ui;
+}
+img#image-github-preview {
+width: 300px;
+object-fit: contain;
+height: 300px;
+background:red;
+}
+button#image-github-upload-button {
+    background: #ffca1f;
+    width: 100%;
+    padding: 15px;
+}
+p#image-github-sha {
+display: none;
+}
+#p-width,
+#p-height
+{
+display: grid;
+place-content: center;
+}
+.image-github-input-container {
+border: 1px solid #e5e5e5;
+display: grid;
+grid-template-columns: 1fr auto;
+padding-right: 15px;
+}
+input[type=file]::file-selector-button {
+background-color: #fff;
+color: #000;
+border: 0px;
+border-right: 1px solid #e5e5e5;
+padding: 10px 15px;
+margin-right: 20px;
+transition: .5s;
+}
+input[type=file]::file-selector-button:hover {
+background-color: #eee;
+border: 0px;
+border-right: 1px solid #e5e5e5;
+}
+div#image-github-preview {
+    width: 360px;
+    height: 360px;
+    background: white;
+    display: grid;
+    place-content: center;
+}
+img#image-github-upload-preview {
+object-fit: contain;
+height: auto;
+width: auto;
+max-width: 360px;
+max-height: 360px;
+margin: auto;
+}
+
+
+.image-github-sidebar-url{
+  width: 165px; /* Set the desired width of the container */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for the truncated text */
+}
+.image-github-item p {
+    font-size: 12px;
+    font-family: system-ui;
+    color: grey;
+    padding: 5px 15px;
+    border-top: 1px solid #e9e9e9;
+    width: 100%;
+}
+
+button#image-github-sidebar-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    margin: 10px;
+    padding: 7px;
+    box-sizing: border-box;
+    width: 35px;
+    border-radius: 50%;
+}
+button#image-github-sidebar-next-button {
+    display: none;
+}

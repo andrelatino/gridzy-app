@@ -1,0 +1,177 @@
+/*MODAL*/
+#image-modal{
+    z-index: 9999;
+    position: fixed;
+    display: grid;
+    place-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #b9b9b9;
+    gap: 1px;
+    background: white;
+    padding: 10px;
+    width:300px;
+    height: 370px;
+}
+#image-container {
+    position: absolute;
+    width: 300px;
+}
+#image-github-buttons {
+    display: flex;
+    place-content: baseline;
+}
+#image-all,
+#image-xs,
+#image-s,
+#image-m,
+#image-l,
+#image-xl
+{
+    display: grid;
+    grid-template-columns: 200px 100px;
+    position: absolute;
+    
+}
+
+#image-all-thumbnail,
+#image-xs-thumbnail,
+#image-s-thumbnail,
+#image-m-thumbnail,
+#image-l-thumbnail ,
+#image-xl-thumbnail
+{
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
+    background: #dadada;
+    padding: 10%;
+    grid-column: 1 / -1;
+}
+
+#image-all-input,
+#image-xs-input,
+#image-s-input,
+#image-m-input,
+#image-l-input,
+#image-xl-input
+{
+    height: 35px;
+    border: none;
+    background: #ffffff;
+    padding: 15px;
+}
+#image-all-save,
+#image-xs-save,
+#image-s-save,
+#image-m-save,
+#image-l-save,
+#image-xl-save{
+    background: #2196f3;
+    color: white;  
+}
+
+
+#image-drag,
+#image-modal-search {
+    width: 35px;
+    padding: 6px;
+}
+
+
+/*SIDEBAR*/
+
+#image-sidebar{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    right: -300px;
+    background-color: rgb(241, 241, 241);
+    z-index: 9999;
+}
+
+#image-sidebar-search {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+#image-sidebar-search-input {
+    padding: 10px;
+    border: none;
+    text-align: center;
+}
+
+#image-sidebar-search-button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 15px;
+}
+#image-sidebar-total {
+    text-align: center;
+    color: #aeaeae;
+    padding-top: 15px;
+    font-size: 12px;
+}
+
+#image-sidebar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(auto,170px));
+    place-content: space-evenly;
+    grid-gap: 40px;
+    padding:40px;  
+  }
+  
+.image-sidebar-items{ 
+    position:relative;
+    overflow: hidden;
+    background:white;
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+}
+.image-sidebar-alt {
+    display: grid;
+    margin: 10px;
+    font-size: small;
+    color: grey;
+}
+#image-sidebar-next-div {
+    display: grid;
+    place-content: center;
+}
+#image-sidebar-next-button {
+    background: #007dec;
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-bottom: 100px;
+    font-size: 20px;
+}
+
+#image-sidebar-settings {
+    display: grid;
+    grid-template-columns: 75px 75px auto;
+}
+#image-sidebar-settings select,
+#image-sidebar-settings input {
+    border: none;
+    padding: 5%;
+    text-align: center;
+    color: #cbcbcb;
+    font-family: system-ui;
+}
+#p-width,
+#p-height
+{
+    display: grid;
+    place-content: center;
+}
+
+
+  

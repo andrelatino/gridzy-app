@@ -1,0 +1,78 @@
+#icon-sidebar {
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    right: -300px;
+    background-color: rgb(241, 241, 241);
+    z-index: 9999;
+}
+#icon-sidebar-header {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#icon-sidebar-input {
+    padding: 10px;
+    border: none;
+    text-align: center;
+}
+#icon-sidebar-search {
+    background: red;
+    color: white;
+    border: none;
+    padding: 15px;
+}
+#icon-sidebar-total {
+    text-align: center;
+    color: #aeaeae;
+    padding: 20px;
+    font-size: 12px;
+}
+
+
+
+#icon-sidebar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 25px;
+    place-content: center;
+    place-items:center;
+   
+}
+
+.icon-sidebar-items,
+.icon-sidebar-items img  {
+    width: 50px;
+    height: 100%;
+}
+#icon-sidebar-next-div {
+    display: grid;
+    place-content: center;
+}
+#icon-sidebar-next-button {
+    visibility: hidden;
+    background: #007dec;
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+
+#icons-header{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    height: auto;
+    background: white;
+    box-sizing: border-box;
+    margin: 25px 50px;
+    border-radius: 10px;
+}
